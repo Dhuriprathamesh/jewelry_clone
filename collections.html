@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections - Desires</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .collections-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                        url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .collection-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            cursor: pointer;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .collection-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .collection-card:hover .collection-image {
+            transform: scale(1.05);
+        }
+
+        .collection-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 1.5rem;
+            color: white;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .collection-card:hover .collection-overlay {
+            transform: translateY(-5px);
+        }
+
+        .collection-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .collection-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .filter-section {
+            padding: 2rem;
+            background: var(--light-gray);
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .collection-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .collection-image {
+                height: 300px;
+            }
+
+            .collections-hero {
+                height: 40vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Desires</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for jewelry...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="collections.html" class="active">Collections</a>
+                <a href="new-arrivals.html">New Arrivals</a>
+                <a href="sale.html">Sale</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="collections-hero">
+        <div class="hero-content">
+            <h1>Our Collections</h1>
+            <p>Discover our exquisite range of jewelry collections</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-buttons">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Rings</button>
+            <button class="filter-btn">Necklaces</button>
+            <button class="filter-btn">Earrings</button>
+            <button class="filter-btn">Bracelets</button>
+        </div>
+    </section>
+
+    <!-- Collections Grid -->
+    <section class="collection-grid">
+        <!-- Rings Collection -->
+        <div class="collection-card" data-category="rings">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Diamond Ring" class="collection-image">
+            <div class="collection-overlay">
+                <h3 class="collection-title">Diamond Solitaire Ring</h3>
+                <p class="collection-description">Timeless elegance in every piece</p>
+                <span class="price">$1,299</span>
+            </div>
+        </div>
+
+        <!-- Necklaces Collection -->
+        <div class="collection-card" data-category="necklaces">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pearl Necklace" class="collection-image">
+            <div class="collection-overlay">
+                <h3 class="collection-title">Pearl Necklace</h3>
+                <p class="collection-description">Natural beauty and sophistication</p>
+                <span class="price">$799</span>
+            </div>
+        </div>
+
+        <!-- Earrings Collection -->
+        <div class="collection-card" data-category="earrings">
+            <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Gold Hoop Earrings" class="collection-image">
+            <div class="collection-overlay">
+                <h3 class="collection-title">Gold Hoop Earrings</h3>
+                <p class="collection-description">Timeless style</p>
+                <span class="price">$399</span>
+            </div>
+        </div>
+
+        <!-- Bracelets Collection -->
+        <div class="collection-card" data-category="bracelets">
+            <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Emerald Bracelet" class="collection-image">
+            <div class="collection-overlay">
+                <h3 class="collection-title">Emerald Bracelet</h3>
+                <p class="collection-description">Luxurious emerald and diamond bracelet</p>
+                <span class="price">$1,499</span>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const collectionCards = document.querySelectorAll('.collection-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const category = button.textContent.toLowerCase();
+                
+                // Show/hide cards based on category
+                collectionCards.forEach(card => {
+                    if (category === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = card.dataset.category === category ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

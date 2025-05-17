@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals - Desires</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .new-arrivals-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                        url('https://images.unsplash.com/photo-1599643477877-530eb83abc8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .new-arrivals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .product-description {
+            color: #666;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background: var(--primary-dark);
+        }
+
+        .sort-section {
+            padding: 2rem;
+            background: var(--light-gray);
+            text-align: center;
+        }
+
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .new-arrivals-grid {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+            }
+
+            .new-arrivals-hero {
+                height: 30vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Desires</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for jewelry...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="collections.html">Collections</a>
+                <a href="new-arrivals.html" class="active">New Arrivals</a>
+                <a href="sale.html">Sale</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="new-arrivals-hero">
+        <div class="hero-content">
+            <h1>New Arrivals</h1>
+            <p>Discover our latest collection of exquisite jewelry</p>
+        </div>
+    </section>
+
+    <!-- Sort Section -->
+    <section class="sort-section">
+        <select class="sort-select">
+            <option value="newest">Newest First</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="popular">Most Popular</option>
+        </select>
+    </section>
+
+    <!-- New Arrivals Grid -->
+    <section class="new-arrivals-grid">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Diamond Solitaire Ring">
+                <span class="new-badge">New</span>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Diamond Solitaire Ring</h3>
+                <p class="product-price">$1,299</p>
+                <p class="product-description">Classic solitaire ring with a brilliant cut diamond</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pearl Necklace">
+                <span class="new-badge">New</span>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Pearl Necklace</h3>
+                <p class="product-price">$899</p>
+                <p class="product-description">Elegant freshwater pearl necklace</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Gold Hoop Earrings">
+                <span class="new-badge">New</span>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Gold Hoop Earrings</h3>
+                <p class="product-price">$499</p>
+                <p class="product-description">Classic gold hoop earrings</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Sort functionality
+        const sortSelect = document.querySelector('.sort-select');
+        sortSelect.addEventListener('change', () => {
+            // Add sort logic here
+        });
+
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Add to cart logic here
+                showNotification('Product added to cart!');
+            });
+        });
+    </script>
+</body>
+</html> 
